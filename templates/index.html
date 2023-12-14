@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="LT">
+<head>
+    <title> CRM </title>
+</head>
+<body>
+
+    {% extends "base.html" %}
+    {% block content %}
+
+    <form action="/action_page.php">
+        <div class="mb-3 mt-3 row">
+
+        <!-- blokas kuriame bus info apie tavo įmonę -->
+
+          <div class="col-sm-3 col-md-6"><h3>Your Company</h3></div>
+        </div>
+        <div class="mb-3 mt-3 row">
+
+            <div class="col-sm-3 col-md-6">
+              <select class="form-select" id="company">
+                {% for company in comp %}
+                <option>{{company.name}}</option>
+                {% endfor %}
+              </select>
+              </div>
+
+            <div class=" p-2"><hr></div>
+            
+            <!-- suvedame duomenis apie klientą kuriuos panaudosime išvestame pdf faile -->
+
+            <div class="mb-3 mt-3 row">
+              <div class="col-sm-3 col-md-6"><h3>Client</h3></div>
+            </div>
+
+            <div class="col-sm-3 col-md-6">
+              <label for="name" class="form-label">Name and surname</label>
+              <input type="name" class="form-control" id="name"  name="name">
+            </div>
+            <div class="col-sm-3 col-md-6">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email"  name="email">
+            </div>
+        </div>
+            <div class="mb-3 mt-3 row">
+              <div class="col-sm-3 col-md-6">
+                  <label for="phone" class="form-label">Phone number</label>
+                  <input type="phone" class="form-control" id="phone" name="phone">
+              </div>
+              <div class="col-sm-3 col-md-6">
+                  <label for="customer_code" class="form-label">Customer Code</label>
+                  <input type="customer_code" class="form-control" id="customer_code" name="customer_code">
+             </div>
+            </div>
+            <div class="mb-3 mt-3 row">
+                <div class="col-sm-3 col-md-8">
+                    <label for="phone" class="form-label">Adress</label>
+                    <input type="phone" class="form-control" id="phone"  name="adress">
+                </div>
+                <div class="col-sm-3 col-md-4">
+                    <label for="city" class="form-label">City</label>
+                    <select class="form-select" id="City">
+                      {% for x in miestai %}
+                      <option>{{ x }}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+            </div>
+                <div class=" p-2"><hr></div>
+
+                <!-- išvedame bloką kuriame galėsime suvesti duomenis apie mūsų parduotas prekes ir paslaugas -->
+                <div class="container text-center  mt-3 mb-3">
+                  <div class="row row-cols-4 mt-3 mb-3 bg-primary-subtle rounded">
+                    <div class="col-md-6">Pavadinimas</div>
+                    <div class="col-md-2">Kiekis</div>
+                    <div class="col-md-2">Mato vnt</div>
+                    <div class="col-md-2">Kaina</div>                
+                  </div>
+                </div>
+                <div class="container text-center  mt-3 mb-3 ">
+                  <div class="row row-cols-4 mt-3 mb-3 ">
+                    <div class="col-md-6"><input type="text" class="form-control"></div>
+                    <div class="col-md-2"><input type="text" class="form-control"></div>
+                    <div class="col-md-2"><input type="text" class="form-control"></div>
+                    <div class="col-md-2"><input type="text" class="form-control"></div>                
+                  </div>
+                </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    {% endblock %}
+
+</body>
+</html>

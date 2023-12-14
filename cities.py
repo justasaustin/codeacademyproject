@@ -1,0 +1,1 @@
+miestai = ["Vilnius", "Kaunas", "Klaipėda", "Šiauliai"]
